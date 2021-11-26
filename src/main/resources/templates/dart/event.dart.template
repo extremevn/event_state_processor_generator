@@ -1,0 +1,5 @@
+import 'package:eventstateprocessor/eventstateprocessor.dart';
+
+abstract class ${processor_pascal_case}Event extends UiEvent {
+  const ${processor_pascal_case}Event();
+}

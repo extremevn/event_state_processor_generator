@@ -1,0 +1,20 @@
+import 'dart:async';
+import 'package:eventstateprocessor/eventstateprocessor.dart';
+
+import '${processor_snake_case}_event.dart';
+import '${processor_snake_case}_state.dart';
+
+class ${processor_pascal_case}Processor extends EventToStateProcessor<${processor_pascal_case}Event, ${processor_pascal_case}State> {
+
+  ${processor_pascal_case}Processor() : super(const ${processor_pascal_case}State(isInit: true, isLoading: false, error: null));
+
+  @override
+  Stream<${processor_pascal_case}State> processEvent(${processor_pascal_case}Event event) async* {
+    final currentState = state;
+    try {
+        yield ${processor_pascal_case}State.loading();
+    } catch (error) {
+        yield currentState.copy(isInit: false, error: getAppException(error));
+    }
+  }
+}

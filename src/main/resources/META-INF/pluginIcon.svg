@@ -1,0 +1,13 @@
+<svg width="40" height="40" xmlns="http://www.w3.org/2000/svg">
+ <!-- Created with UXWing SVG Editor - https://uxwing.com/svg-icon-editor/ -->
+ <g>
+  <title>background</title>
+  <rect fill="none" id="canvas_background" height="42" width="42" y="-1" x="-1"/>
+ </g>
+ <g>
+  <title>Layer 1</title>
+  <rect id="svg_3" height="513" width="511" y="-1.15" x="2" fill-opacity="null" stroke-opacity="null" stroke-width="0.001" stroke="#FF0000" fill="#ffffff"/>
+  <text font-weight="bold" xml:space="preserve" text-anchor="start" font-family="Oswald, sans-serif" font-size="147" id="svg_4" y="306.799994" x="64.03125" stroke-opacity="null" stroke-width="0" stroke="#FF0000" fill="#ff0000">ESPg</text>
+  <text font-weight="bold" xml:space="preserve" text-anchor="start" font-family="Oswald, sans-serif" font-size="12" id="svg_6" y="24.399999" x="4.325" stroke-opacity="null" stroke-width="0" stroke="#FF0000" fill="#ff0000">ESPg</text>
+ </g>
+</svg>

@@ -1,0 +1,24 @@
+import 'package:eventstateprocessor/eventstateprocessor.dart';
+import 'package:flutter/material.dart';
+
+import '${processor_snake_case}_event.dart';
+import '${processor_snake_case}_processor.dart';
+import '${processor_snake_case}_state.dart';
+
+class ${processor_pascal_case}Screen extends CoreScreen<${processor_pascal_case}Event, ${processor_pascal_case}State, ${processor_pascal_case}Processor> {
+  @override
+  void handleDataStateChange(BuildContext context, ${processor_pascal_case}Processor processor,
+      ${processor_pascal_case}State state) {}
+
+  @override
+  ${processor_pascal_case}Processor createEventProcessor(BuildContext context) {
+    return ${processor_pascal_case}Processor();
+  }
+
+  @override
+  Widget buildScreenUi(
+      BuildContext context, ${processor_pascal_case}Processor processor, ${processor_pascal_case}State state) {
+      // TODO: implement UI creator
+      return Container();
+  }
+}

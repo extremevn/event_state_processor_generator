@@ -1,0 +1,23 @@
+import 'package:eventstateprocessor/eventstateprocessor.dart';
+
+class ${processor_pascal_case}State extends DataState {
+  final bool isInit;
+  final bool isLoading;
+  final ${exception_name_pascal_case}? error;
+
+  const ${processor_pascal_case}State({required this.isInit, required this.isLoading, required this.error});
+
+  ${processor_pascal_case}State.init() : this(isInit: true, isLoading: false, error: null);
+
+  ${processor_pascal_case}State.loading() : this(isInit: false, isLoading: true, error: null);
+
+  ${processor_pascal_case}State.error(${exception_name_pascal_case} error)
+      : this(isInit: false, isLoading: false, error: error);
+
+  ${processor_pascal_case}State copy({bool? isInit, bool? isLoading, ${exception_name_pascal_case}? error}) {
+    return ${processor_pascal_case}State(
+        isInit: isInit ?? this.isInit,
+        isLoading: isLoading ?? this.isLoading,
+        error: error ?? this.error);
+  }
+}

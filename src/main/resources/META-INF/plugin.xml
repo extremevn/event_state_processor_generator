@@ -1,0 +1,62 @@
+<idea-plugin>
+    <id>vn.com.extremevn.evpg</id>
+    <version>1.0.0</version>
+    <name>Event State Processor Generator</name>
+    <vendor>Extreme Viet Nam</vendor>
+    <description>
+        <![CDATA[
+        Event State Processor Generator plugin is compatible with <a href="https://www.jetbrains.com/idea/" target="_blank">IntelliJ</a> and <a href="https://developer.android.com/studio/">Android Studio</a>. It provides source code generation for the <a href="https://github.com/extremevn/event_state_processor">EventStateProcessor Library</a> to increase code productivity in <a href="https://flutter.dev/">Flutter</a> apps development.
+        <br />
+        <br />
+        <a href="https://github.com/extremevn/event_state_processor_generator" target="_blank">More information</a>
+        ]]>
+    </description>
+
+    <change-notes><![CDATA[
+        # [1.0.0] - 26/11/2021 <br />
+        ## 1st version <br />
+        Features:<br />
+        <ul>
+            <li> Support <a href="https://pub.dev/packages/eventstateprocessor">eventstateprocessor: ^0.1.0</a></li>
+            <li> Auto generate source code classes for both UI (screen) and logic (processor, event, state)</li>
+            <li> Live template support auto generate class (screen, processor, event, state)</li>
+        </ul>]]>
+    </change-notes>
+
+    <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/build_number_ranges.html for description -->
+    <idea-version since-build="145"/>
+
+    <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
+       on how to target different products -->
+    <depends>com.intellij.modules.lang</depends>
+    <depends>com.intellij.modules.java</depends>
+
+    <actions>
+        <action id="vn.com.extremevn.evpg.action.GenerateESPClassesAction.menu"
+                class="vn.com.extremevn.evpg.action.GenerateESPClassesAction"
+                description="Generate a new Even State Processor Files"
+                icon="/icons/pluginIcon.svg"
+                text="Even State Processor Files">
+            <add-to-group
+                    group-id="NewGroup"
+                    anchor="first"/>
+        </action>
+
+        <action id="vn.com.extremevn.evpg.action.GenerateESPClassesAction.shortcut"
+                class="vn.com.extremevn.evpg.action.GenerateESPClassesAction"
+                text="Even State Processor Files"
+                description="Generate a new Even State Processor Files"
+                icon="/icons/pluginIcon.svg">
+            <override-text place="MainMenu" text="Even State Processor Files"/>
+            <keyboard-shortcut first-keystroke="control alt E" second-keystroke="G" keymap="$default"/>
+            <mouse-shortcut keystroke="control button3 doubleClick" keymap="$default"/>
+        </action>
+    </actions>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <defaultLiveTemplatesProvider
+                implementation="vn.com.extremevn.evpg.live_template.PluginTemplateProvider"/>
+        <liveTemplateContext implementation="vn.com.extremevn.evpg.live_template.PluginContext"/>
+    </extensions>
+
+</idea-plugin>
