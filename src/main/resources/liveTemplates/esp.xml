@@ -8,15 +8,16 @@
         </context>
     </template>
     <template name="classprocessor"
-              value="class $Subject$Processor extends EventToStateProcessor&lt;$Subject$Event, $Subject$State&gt; {&#10;  $Subject$Processor() : super(const $Subject$State(isInit: true, isLoading: false, error: null));&#10;&#10;  @override&#10;  Stream&lt;$Subject$State&gt; processEvent($Subject$Event event) async* {&#10;    final currentState = state;&#10;    try {&#10;        yield $Subject$State.loading();&#10;    } catch (error) {&#10;        yield currentState.copy(isInit: false, error: getAppException(error));&#10;    }&#10;  }&#10;}"
+              value="import 'dart:async';&#10;import 'package:eventstateprocessor/eventstateprocessor.dart';&#10;&#10;import '$packageName$_event.dart';&#10;import '$packageName$_state.dart';&#10;&#10;class $Subject$Processor extends EventToStateProcessor&lt;$Subject$Event, $Subject$State&gt; {&#10;  $Subject$Processor() : super(const $Subject$State(isInit: true, isLoading: false, error: null));&#10;&#10;  @override&#10;  Stream&lt;$Subject$State&gt; processEvent($Subject$Event event) async* {&#10;    final currentState = state;&#10;    try {&#10;        yield $Subject$State.loading();&#10;    } catch (error) {&#10;        yield currentState.copy(isInit: false, error: getAppException(error));&#10;    }&#10;  }&#10;}"
               description="class processor" toReformat="true" toShortenFQNames="true">
         <variable name="Subject" expression="" defaultValue="&quot;Subject&quot;" alwaysStopAt="true"/>
+        <variable name="packageName" expression='groovyScript("return _1.toLowerCase();", snakeCase(Subject))' defaultValue="&quot;Subject&quot;"/>
         <context>
             <option name="DART_TOPLEVEL" value="true"/>
         </context>
     </template>
     <template name="classevent"
-              value="abstract class $Subject$Event extends UiEvent {&#10;  const $Subject$Event();&#10;}"
+              value="import 'package:eventstateprocessor/eventstateprocessor.dart';&#10;&#10;abstract class $Subject$Event extends UiEvent {&#10;  const $Subject$Event();&#10;}"
               description="class event" toReformat="true" toShortenFQNames="true">
         <variable name="Subject" expression="" defaultValue="&quot;Subject&quot;" alwaysStopAt="true"/>
         <context>
@@ -24,16 +25,18 @@
         </context>
     </template>
     <template name="classscreen"
-              value="class $Subject$Screen extends CoreScreen&lt;$Subject$Event, $Subject$State, $Subject$Processor&gt; {&#10;  @override&#10;  void handleDataStateChange(BuildContext context, $Subject$Processor processor, $Subject$State state) {&#10;  }&#10;&#10;  @override&#10;  $Subject$Processor createEventProcessor(BuildContext context) {&#10;    return $Subject$Processor();&#10;  }&#10;&#10;  @override&#10;  Widget buildScreenUi(BuildContext context, $Subject$Processor processor, $Subject$State state) {&#10;    return Container();&#10;  }&#10;}"
+              value="import 'package:eventstateprocessor/eventstateprocessor.dart';&#10;import 'package:flutter/material.dart';&#10;&#10;import '$packageName$_event.dart';&#10;import '$packageName$_processor.dart';&#10;import '$packageName$_state.dart';&#10;&#10;class $Subject$Screen extends CoreScreen&lt;$Subject$Event, $Subject$State, $Subject$Processor&gt; {&#10;  @override&#10;  void handleDataStateChange(BuildContext context, $Subject$Processor processor, $Subject$State state) {&#10;  }&#10;&#10;  @override&#10;  $Subject$Processor createEventProcessor(BuildContext context) {&#10;    return $Subject$Processor();&#10;  }&#10;&#10;  @override&#10;  Widget buildScreenUi(BuildContext context, $Subject$Processor processor, $Subject$State state) {&#10;    return Container();&#10;  }&#10;}"
               description="class screen" toReformat="false" toShortenFQNames="true">
         <variable name="Subject" expression="" defaultValue="&quot;Subject&quot;" alwaysStopAt="true"/>
+        <variable name="packageName" expression='groovyScript("return _1.toLowerCase();", snakeCase(Subject))' defaultValue="&quot;Subject&quot;"/>
+
         <context>
             <option name="DART_TOPLEVEL" value="true"/>
         </context>
     </template>
     <!--    EVENT PROCESSOR LIB-->
     <template name="classstate"
-              value="class $Subject$State extends DataState {&#10;  final bool isInit;&#10;  final bool isLoading;&#10;  final $ExceptionName$? error;&#10;&#10;  const $Subject$State({required this.isInit, required this.isLoading, required this.error});&#10;&#10;  $Subject$State.init() : this(isInit: true, isLoading: false, error: null);&#10;&#10;  $Subject$State.loading() : this(isInit: false, isLoading: true, error: null);&#10;&#10;  $Subject$State.error($ExceptionName$ error) : this(isInit: false, isLoading: false, error: error);&#10;&#10;  $Subject$State copy({bool? isInit, bool? isLoading, $ExceptionName$? error}) {&#10;       return $Subject$State(isInit: isInit ?? this.isInit, isLoading: isLoading ?? this.isLoading, error: error ?? this.error);&#10;  }&#10;}"
+              value="import 'package:eventstateprocessor/eventstateprocessor.dart';&#10;&#10;class $Subject$State extends DataState {&#10;  final bool isInit;&#10;  final bool isLoading;&#10;  final $ExceptionName$? error;&#10;&#10;  const $Subject$State({required this.isInit, required this.isLoading, required this.error});&#10;&#10;  $Subject$State.init() : this(isInit: true, isLoading: false, error: null);&#10;&#10;  $Subject$State.loading() : this(isInit: false, isLoading: true, error: null);&#10;&#10;  $Subject$State.error($ExceptionName$ error) : this(isInit: false, isLoading: false, error: error);&#10;&#10;  $Subject$State copy({bool? isInit, bool? isLoading, $ExceptionName$? error}) {&#10;       return $Subject$State(isInit: isInit ?? this.isInit, isLoading: isLoading ?? this.isLoading, error: error ?? this.error);&#10;  }&#10;}"
               description="class state" toReformat="true" toShortenFQNames="true">
         <variable name="Subject" expression="" defaultValue="&quot;Subject&quot;" alwaysStopAt="true"/>
         <variable name="ExceptionName" expression="" defaultValue="&quot;AppException&quot;" alwaysStopAt="true"/>

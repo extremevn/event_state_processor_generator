@@ -1,6 +1,6 @@
 <idea-plugin>
     <id>vn.com.extremevn.evpg</id>
-    <version>1.0.0</version>
+    <version>1.0.1</version>
     <name>Event State Processor Generator</name>
     <vendor>Extreme Viet Nam</vendor>
     <description>
@@ -20,6 +20,12 @@
             <li> Support <a href="https://pub.dev/packages/eventstateprocessor">eventstateprocessor: ^0.1.0</a></li>
             <li> Auto generate source code classes for both UI (screen) and logic (processor, event, state)</li>
             <li> Live template support auto generate class (screen, processor, event, state)</li>
+        </ul>
+        <br />
+        # [1.0.1] - 29/11/2021 <br />
+        Updates:<br />
+        <ul>
+            <li> Add 'import' statement for code completion (live template)</li>
         </ul>]]>
     </change-notes>
 
