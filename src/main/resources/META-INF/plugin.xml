@@ -1,14 +1,11 @@
 <idea-plugin>
     <id>vn.com.extremevn.evpg</id>
-    <version>1.0.1</version>
+    <version>1.0.2</version>
     <name>Event State Processor Generator</name>
     <vendor>Extreme Viet Nam</vendor>
     <description>
         <![CDATA[
-        Event State Processor Generator plugin is compatible with <a href="https://www.jetbrains.com/idea/" target="_blank">IntelliJ</a> and <a href="https://developer.android.com/studio/">Android Studio</a>. It provides source code generation for the <a href="https://github.com/extremevn/event_state_processor">EventStateProcessor Library</a> to increase code productivity in <a href="https://flutter.dev/">Flutter</a> apps development.
-        <br />
-        <br />
-        <a href="https://github.com/extremevn/event_state_processor_generator" target="_blank">More information</a>
+        Event State Processor Generator plugin provides source code generation for the <a href="https://github.com/extremevn/event_state_processor">EventStateProcessor Library</a> to increase code productivity in <a href="https://flutter.dev/">Flutter</a> apps development.
         ]]>
     </description>
 
@@ -26,7 +23,17 @@
         Updates:<br />
         <ul>
             <li> Add 'import' statement for code completion (live template)</li>
-        </ul>]]>
+        </ul>
+        <br />
+        # [1.0.2] - 06/12/2021 <br />
+        Updates:<br />
+        <ul>
+            <li> Update plugin description for display in the plugin preview card.</li>
+        </ul>
+        <br />
+        <br />
+        <a href="https://github.com/extremevn/event_state_processor_generator" target="_blank">More information</a>
+        ]]>
     </change-notes>
 
     <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/build_number_ranges.html for description -->
